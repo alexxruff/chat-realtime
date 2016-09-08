@@ -13,7 +13,7 @@ class Server {//Declaramos la clase Server
     this.app = express();//Iniciamos express y lo guardamos en una variable de contexto
     this.app.use(parser.json());//Usamos el middleware body-parser para parsear los datos que recibimos en el body y convertirlos a json
     this.app.use(parser.urlencoded({extended: true}));//Le decimos que los datos pasaran codificados de varias formas
-    this.app.use(express.static(path.join(__dirname, '../cliente/js/')));//Creamos un middleware y hacemos uso del modulo path.join() y le decimos que use la ruta del archivo y luego podamos movernos en las rutas
+    this.app.use(express.static(path.join(__dirname, '../cliente/')));//Creamos un middleware y hacemos uso del modulo path.join() y le decimos que use la ruta del archivo y luego podamos movernos en las rutas
     //De esta forma le decimos que los archivos estaticos como imagenes, css, js, videos y demas assets estaran en esa carpeta
     this.app.engine('html', swig.renderFile);//Le decimos cual sera el motor de renderizacion de templates y sera swig
     this.app.set('view engine', 'html');//Le decimos que use html como formato de las vistas
